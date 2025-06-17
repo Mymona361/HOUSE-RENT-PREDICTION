@@ -1,6 +1,7 @@
 🏠 House Price Prediction Using Linear Regression
 
 This is a simple Python project that uses Linear Regression to predict house prices based on their area (in square feet). The model is trained using sample data and allows user input to predict the price of a house.
+
 📌 Features
 
 Uses scikit-learn for linear regression
