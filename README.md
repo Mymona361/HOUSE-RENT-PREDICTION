@@ -1,81 +1,106 @@
-
 🏠 House Price Prediction Using Linear Regression
 
 This is a simple Python project that uses Linear Regression to predict house prices based on their area (in square feet). The model is trained using sample data and allows user input to predict the price of a house.
 
 📌 Features
-
 Uses scikit-learn for linear regression
 
 Takes user input for house area
 
 Predicts and displays the estimated house price
 
+🛠 Technologies Used
+Python 3
+
+pandas
+
+scikit-learn
 
 
-📈 Sample Dataset
+ 📊 Sample Data
 
-Area (sqft)	Price (Tk)
+The training data used is hardcoded as follows:
 
-1000	20000
-1500	30000
-2000	40000
-2500	50000
-3000	60000
-
-
-🚀 How to Run
-
-1. Clone this repository
-
-git clone https://github.com/your-username/house-price-prediction.git
-cd house-price-prediction
+| Area (sqft) | Price (Tk) |
+| ----------- | ---------- |
+| 1000        | 20000      |
+| 1500        | 30000      |
+| 2000        | 40000      |
+| 2500        | 50000      |
+| 3000        | 60000      |
 
 
-2. Install Dependencies
+ 🚀 How It Works
 
+1. The script creates a DataFrame using `pandas`.
+2. A `LinearRegression` model is trained on the data.
+3. The user is prompted to input the area of a house.
+4. The model predicts the price based on the provided area.
+5. The predicted price is printed in a formatted output.
+
+
+
+ 🛠 Requirements
+
+To run the script, make sure you have the following Python packages installed:
+
+```bash
 pip install pandas scikit-learn
+```
 
 
-3. Run the Script
 
+ 🧾 Usage
+
+Run the script using a Python interpreter:
+
+```bash
 python house_price_predictor.py
+```
 
+You'll be prompted to enter the area of the house:
 
-4. Enter the area when prompted (e.g., 2200) and get the predicted price.
-
-
-
-
----
-
-🧠 How It Works
-
-A LinearRegression model is trained on a small dataset of house areas vs. prices.
-
-The model learns the relationship (price per square foot).
-
-The user provides the area, and the model predicts the corresponding price.
-
-
-
----
-
-📋 Example Output
-
+```
 Enter the area of the house in square feet:
 2200
+```
+
+Output:
+
+```
 predicted price: Tk 44,000.00
 predicted price: Tk 44,000
-
-
----
-
-📄 License
-
-This project is open-source and available under the MIT License.
-
+```
 
 ---
 
-Let me know if you want me to add a .gitignore, LICENSE file, or convert this into a Jupyter Notebook format as well.
+ 📁 Code Summary
+
+```python
+from sklearn.linear_model import LinearRegression
+import pandas as pd
+
+data = {
+    'Area': [1000, 1500, 2000, 2500, 3000],
+    'Price': [20000, 30000, 40000, 50000, 60000]
+}
+
+df = pd.DataFrame(data)
+
+x = df[['Area']]
+y = df['Price']
+
+model = LinearRegression()
+model.fit(x, y)
+
+area = float(input("Enter the area of the house in square feet: \n"))
+predicted_price = model.predict([[area]])
+
+print(f"predicted price: Tk {predicted_price[0]:,.2f}")
+print(f"predicted price: Tk {int(predicted_price[0]):,}")
+```
+
+---
+
+
+
